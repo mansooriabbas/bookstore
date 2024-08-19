@@ -1,0 +1,26 @@
+#main-content {
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(44, 43, 43);
+
+  color: #a6b6b1;
+}
+#main-content .cta {
+  color: black;
+  background-color: #a6b6b1;
+  padding: 2rem;
+}
+
+#main-content .box-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#main-content .box {
+  padding: 0.5rem;
+  height: auto;
+  width: auto;
+  background-color: rgb(41, 43, 43);
+  color: #a6b6b1;
+  text-align: center;
+  
+}

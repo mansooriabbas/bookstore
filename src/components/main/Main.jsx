@@ -1,19 +1,31 @@
-import React from "react";
-import "./Main.css"
-const renderBoxes = () => {
-  const boxes = [];
-  for (let i = 0; i < 10; i++) {
-    boxes.push(<p className="box" key={i}>box{i + 1}</p>);
-  }
-  return boxes;
-};
-renderBoxes();
+import React, { useState } from "react";
+import "./Main.css";
+import { books } from "../../assets/books.json";
 
 export const Main = () => {
+  const [showBooks, setShowBooks] = useState(false);
+  const handleShowBooks = () => {
+    setShowBooks( p => !p);
+  };
+
   return (
-    <div id="main">
-      <h2>Main content</h2>
-      {renderBoxes()}
+    <div id="main-content">
+      <section className="cta">
+        <h1> Trending books</h1>
+        <button onClick={handleShowBooks}>Expand</button>
+      </section>
+      {showBooks === true && (
+        <div className="box-container">
+          {books.map((book) => (
+            <div key={book.title} className="box">
+              <h4>{book.title}</h4>
+              <p>{book.author}</p>
+              <p>{book.genre}</p>
+              <p>{book.year_published}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
