@@ -5,7 +5,7 @@ import { books } from "../../assets/books.json";
 export const Main = () => {
   const [showBooks, setShowBooks] = useState(false);
   const handleShowBooks = () => {
-    setShowBooks( p => !p);
+    setShowBooks((p) => !p);
   };
 
   return (
@@ -26,6 +26,17 @@ export const Main = () => {
           ))}
         </div>
       )}
+      <div className="latest-container">
+        <h2>New Releases</h2>
+        <ul className="latest-box-container">
+          {books.slice(0, 4).map((latest) => (
+            <li className="latest-box" key={latest.title}>
+              <p> {latest.title}</p>
+              <p> {latest.author}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
